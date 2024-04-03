@@ -1,0 +1,835 @@
+/* hamburger menu tutorial used: https://www.youtube.com/watch?v=flItyHiDm7E&ab_channel=WebDevTutorials */
+
+
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* style for header */
+header {
+    background-color: #111D4A;
+    padding: 20px;
+}
+
+.header-content {
+    display: flex;
+    margin: 0 auto;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    height: auto;
+    max-width: 100%;
+    padding: 10px;
+}
+
+/* style for navigation menu */
+nav {
+    background-color: #111D4A;
+}
+
+nav ul {
+    list-style-type: none;
+    text-align: center;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav li a { 
+    color: white;
+    font-weight: bold;
+    text-transform: capitalize;
+    font-size: 2em;
+    text-decoration: none;
+    padding: 30px;
+}
+
+nav li a:hover {
+    color: #7392b7;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+/* style for hamburger menu */
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.nav-menu {
+    display: flex;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+    background-color: white;
+    z-index: 100;
+}
+
+
+/* style for the hero image */
+.hero-img {
+    /* photo by Elizabeth Villalta on Unsplash */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url("https://images.unsplash.com/photo-1632341196470-377b028f3cac?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    width: 100%;
+    height: 600px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    text-align: center;
+}
+
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.hero-text h1 {
+    font-family: "Permanent Marker", cursive;
+    color: white;
+    font-size: 4.5em;
+    text-align: center;
+    padding: 10px;
+    text-shadow: 2px 4px 4px black;
+    overflow-x: hidden;
+}
+
+
+.hero-text a {
+    font-family: Roboto, sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 2px 4px 4px black;
+}
+
+.hero-text .btn {
+    background-color: #111D4A;
+    border: none;
+    color: white;
+    padding: 15px 50px;
+    text-align: center;
+    display: inline-block;
+    font-size: 1.5em;
+    text-decoration: none;
+    font-style: italic;
+    font-weight: bold;
+    border-radius: 30px;
+    box-shadow: 2px 7px 7px black;
+    position: relative;
+}
+
+
+/* style for the main content */
+body {
+    font-family: Roboto, sans-serif;
+    background-color: #fff;
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+main { 
+    width: 85%;
+    margin: 0 auto;
+    padding: 40px 0;
+    line-height: 2em;
+}
+
+h2 {
+    font-size: 40px;
+    color:#111D4A;
+    line-height: 1.5em;
+}
+
+h3 {
+    font-size: 30px;
+    color:#4E6151;
+    line-height: 1.5em;
+    margin-bottom: 10px;
+}
+
+h4 {
+    font-size: 20px;
+    color: #5E8C61;
+}
+
+h4 a {
+    color: #5E8C61;
+}
+
+.welcome p, .things-to-do p, .events p {
+    text-indent: 3em;
+}
+
+.things-to-do li {
+    text-indent: 0;
+}
+
+section {
+    padding: 10px;
+}
+
+
+/* Gallery */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.gallery li {
+    list-style: none;
+    width: 24%;
+}  
+
+.gallery li img {
+    max-width: 100%;
+    object-fit: cover;
+    border: 1px solid #ccc;
+    box-shadow: 2px 7px 7px grey;
+}
+
+
+/* Home section code */
+
+.things-to-do li {
+    margin-left: 50px;
+}
+
+
+/* styles for events */
+.events {
+    text-align: center;
+}
+
+.events h2, p {
+    text-align: left;
+}
+
+.events p {
+    padding-bottom: 20px;
+}
+
+.eventbtn {
+    display: inline-block;
+    background-color: #7392b7;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 1.25em;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+.eventbtn a {
+    padding: 5px;
+}
+
+.eventbtn:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.eventbtn:visited {
+    text-decoration: none;
+}
+
+/* About page styles */
+hr {
+    margin-bottom: 20px;
+}
+
+.about {
+    justify-content: space-between;
+}
+
+.about p {
+    margin-bottom: 10px;
+    text-indent: 3em;
+}
+
+.about img {
+    max-width: 100%;
+    height: auto;
+    padding: 10px;
+    margin-right: 10px;
+    float: left;
+    border: 1px solid grey;
+    box-shadow: 0 0 4px black;
+}
+
+
+/* Event page styles */
+.events-main p {
+    padding-bottom: 20px;
+}
+
+#all-events {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+article img {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    justify-content: center;
+  }
+
+article {
+    display: flex;
+    flex-basis: calc(33.33% - 20px);
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+.eventblock {
+    text-decoration: none!important;
+}
+
+.article:hover {
+    box-shadow: 0 0 4px black;
+    border: 1px solid black;
+
+}
+
+.eventblock a:visited {
+    text-decoration: none;
+}
+
+time {
+    color: #555555; 
+}
+
+.eventblock p {
+    color: black;
+}
+
+.article {
+    display: block;
+    border: 1px solid grey;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+
+/* visit us styles */
+.visithero {
+   /* photo by https://unsplash.com/photos/silhouette-of-nine-persons-standing-on-the-hill-vpxeE7s-my4 */
+   background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url("https://images.unsplash.com/photo-1444210971048-6130cf0c46cf?q=80&w=2073&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+   width: 100%;
+   height: 300px;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+   position: relative;
+   text-align: center;
+}
+
+.map {
+    border: 1px solid gray;
+    justify-content: center;
+    margin: 0 auto;
+    width: 100%;
+    height: auto;
+}
+
+.dining img {
+    max-width: 100%;
+    height: auto;
+}
+
+.location a {
+    text-align: center;
+    color: blue;
+    font-size: 20px;
+}
+
+.facilities li {
+    margin-left: 4em;
+}
+
+.facilities a {
+    color: blue;
+}
+.facilities a:visited {
+    color: blue;
+}
+
+.safety a {
+    color: blue
+}
+
+/* contact form styles */
+form {
+    border: 1px solid gray;
+    padding: 10px;
+}
+
+.submit {
+    padding: 10px;
+    margin: 0 auto;
+    text-align: center;
+    width: 100px;
+    background-color: #111D4A;
+    color: white;
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 10px;
+    border: none;
+}
+
+input {
+    width: 98%;
+    border: 1px solid grey;
+    line-height: 2em;
+    padding-left: 2%;
+}
+
+textarea {
+    width: 100%;
+    line-height: 2em;
+}
+
+/* Snippet styles*/
+.snippet {
+    clear: both;
+    margin: 24px 0;
+    padding: 10px 0;
+    list-style: none;
+  }
+  
+.snippet_img {
+    width: 100px;
+    float: left;
+    margin-right: 1em;
+  }
+
+/* flex stuff*/
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.interior {
+    margin: 10px;
+}
+
+.location {
+    width: 40%;
+    order: 1;
+}
+
+.contact {
+    width: 40%;
+    order: 2;
+}
+
+.safety {
+    width: 20%;
+    order: 3;
+}
+
+.attractions {
+    width: 50%;
+    order: 6;
+}
+
+.dining {
+    width: 50%;
+    order: 5;
+    margin: 0 auto;
+}
+
+.amenities {
+    width: 100%;
+    order: 4;
+}
+
+
+
+
+/* styles for footer section */
+footer { 
+    background-color: #7392b7;
+    color: white;
+    padding: 2% 1% 1% 1%;
+    width: 100%;
+    text-align: center!important;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+footer a {
+    text-decoration: none;
+    color: white;
+}
+
+footer .copyright p {
+    text-align: center!important;
+    padding: 5px;
+}
+
+.copyright a:hover {
+    text-decoration: underline;
+}
+
+footer .social a {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+footer .icon {
+    height: auto;
+    width: 42px;
+    margin: 0 auto;
+}
+
+a:hover {
+    cursor: pointer;
+}
+
+
+/* media queries */
+@media screen and (max-width: 471px) {
+    .logo {
+        height: auto;
+        width: 200px;
+    }
+    .hero-img {
+        /* photo by Elizabeth Villalta on Unsplash https://unsplash.com/photos/a-group-of-people-standing-on-top-of-a-sandy-beach-gXRTUnkrS3I */
+        background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url("https://images.unsplash.com/photo-1632341196470-377b028f3cac?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+        width: 100%;
+        height: 300px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        text-align: center;
+    }
+
+    .hero-text h1 {
+        font-family: "Permanent Marker", cursive;
+        color: white;
+        font-size: 2em;
+        text-align: center;
+        padding: 5px 1px 5px 1px;
+        text-shadow: 2px 4px 4px black;
+        overflow-x: hidden;
+    }
+
+
+    .hero-text .btn {
+        display: none!important;
+    }
+
+        /* style for hamburger img */
+    .hamburger {
+        display: block;
+    }
+
+    .hamburger.active .bar:nth-child(1){
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(2){
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(3){
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 125px;
+        gap: 0;
+        flex-direction: column;
+        background-color: #111D4A;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        z-index: 20;
+    }
+
+    .nav-item {
+        margin: 16px 0;
+    }
+
+    .nav-menu.active {
+        left: 0px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    /* style for hero img */
+    .hero-img {
+        /* photo by Elizabeth Villalta on Unsplash */
+        background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url("https://images.unsplash.com/photo-1632341196470-377b028f3cac?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+        width: 100%;
+        height: 300px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        text-align: center;
+    }
+
+    .hero-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .hero-text h1 {
+        font-family: "Permanent Marker", cursive;
+        color: white;
+        font-size: 2em;
+        text-align: center;
+        padding: 5px 1px 5px 1px;
+        text-shadow: 2px 4px 4px black;
+        overflow-x: hidden;
+    }
+
+
+    .hero-text a {
+        font-family: Roboto, sans-serif;
+        font-weight: bold;
+        text-transform: uppercase;
+        text-shadow: 2px 4px 4px black;
+    }
+
+    .hero-text .btn {
+        background-color: #111D4A;
+        border: none;
+        color: white;
+        padding: 15px 50px;
+        text-align: center;
+        display: inline-block;
+        font-size: 1em;
+        text-decoration: none;
+        font-style: italic;
+        font-weight: bold;
+        border-radius: 30px;
+        box-shadow: 2px 7px 7px black;
+        position: relative;
+    }
+
+        /* style for hamburger img */
+    .hamburger {
+        display: block;
+    }
+
+    .hamburger.active .bar:nth-child(1){
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(2){
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(3){
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 150px;
+        gap: 0;
+        flex-direction: column;
+        background-color: #111D4A;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        z-index: 20;
+    }
+
+    .nav-item {
+        margin: 16px 0;
+    }
+
+    .nav-menu.active {
+        left: 0px;
+    }
+
+    /*Style for gallery*/
+    .gallery li {
+        list-style: none;
+        width: 100%;
+    }  
+
+    article {
+        flex-basis: calc(100% - 20px);
+      }
+
+      /* events style */
+      .location {
+        width: 100%;
+        order: 1;
+    }
+
+    .location p {
+        text-align: center;
+    }
+    
+    .contact {
+        width: 100%;
+        order: 2;
+    }
+    
+    .safety {
+        width: 100%;
+        order: 6;
+    }
+    
+    .attractions {
+        width: 100%;
+        order: 3;
+    }
+    
+    .dining {
+        width: 100%;
+        order: 5;
+        margin: 0 auto;
+    }
+    
+    .amenities {
+        width: 100%;
+        order: 4;
+    }
+
+}
+
+@media screen and (min-width: 769px) { 
+    nav li {
+        font-size: 14px;
+    }
+
+    nav li a { 
+        padding: 20px;
+    }
+
+    .gallery li {
+        list-style: none;
+        width: 49%;
+    } 
+
+
+    /* events page */
+    article {
+        flex-basis: calc(50% - 20px);
+    }
+
+    .location {
+        width: 100%;
+        order: 1;
+    }
+
+    .location p {
+        text-align: center;
+    }
+    
+    .contact {
+        width: 50%;
+        order: 2;
+    }
+    
+    .safety {
+        width: 50%;
+        order: 3;
+    }
+    
+    .attractions {
+        width: 100%;
+        order: 6;
+    }
+    
+    .dining {
+        width: 100%;
+        order: 5;
+        margin: 0 auto;
+    }
+    
+    .amenities {
+        width: 100%;
+        order: 4;
+    }
+
+}
+
+@media screen and (min-width: 1180px) {
+    .gallery li {
+        list-style: none;
+        width: 24%;
+    } 
+
+    article {
+        display: flex;
+        flex-basis: calc(33.33% - 20px);
+        box-sizing: border-box;
+        margin-bottom: 20px;
+    }
+
+    .location {
+        width: 40%;
+        order: 1;
+    }
+    
+    .contact {
+        width: 40%;
+        order: 2;
+    }
+    
+    .safety {
+        width: 20%;
+        order: 3;
+    }
+    
+    .attractions {
+        width: 50%;
+        order: 6;
+    }
+    
+    .dining {
+        width: 50%;
+        order: 5;
+        margin: 0 auto;
+    }
+    
+    .amenities {
+        width: 100%;
+        order: 4;
+    }
+
+}
